@@ -99,7 +99,7 @@ header{
     margin-left: 30px;
 }
 nav ul{
-	background: #1a951e;
+	background: #814f00;/*color del menu*/
 	list-style: none;
 	display: -webkit-flex;
 	display: -moz-flex;
@@ -135,7 +135,7 @@ nav ul li:hover ul{
 	display: block;
 }
 nav li ul{
-	background: #1a951e;
+	background: #ce7e00; /*color sub menu*/
 	display: none;
 	flex-direction: column;
 	position: absolute;
@@ -149,7 +149,7 @@ nav li ul a{
 }
 nav li ul a:hover{
 	/*background: #2c9595;*/
-	background: #155118;
+	background: #f1c232; /*color del hover pasar raton*/
 }
 nav li ul li:last-child{
 	border-radius: 0 0 10px 10px;
