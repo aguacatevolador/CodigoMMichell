@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 29-03-2022 a las 20:57:12
+-- Tiempo de generación: 29-03-2022 a las 21:32:22
 -- Versión del servidor: 10.4.22-MariaDB
 -- Versión de PHP: 8.1.2
 
@@ -126,21 +126,25 @@ CREATE TABLE `cuentas` (
   `id_abonos` int(11) NOT NULL,
   `saldo` int(11) NOT NULL,
   `plazos` int(11) NOT NULL,
-  `id_mueble_1` int(11) NOT NULL,
-  `id_mueble_2` int(11) DEFAULT NULL,
-  `id_mueble_3` int(11) DEFAULT NULL,
-  `id_mueble_4` int(11) DEFAULT NULL,
-  `id_mueble_5` int(11) DEFAULT NULL,
-  `id_mueble_6` int(11) DEFAULT NULL,
-  `estado` tinyint(1) NOT NULL
+  `id_artuculo_1` int(11) NOT NULL,
+  `id_articulo_2` int(11) DEFAULT NULL,
+  `id_articulo_3` int(11) DEFAULT NULL,
+  `id_articulo_4` int(11) DEFAULT NULL,
+  `id_articulo_5` int(11) DEFAULT NULL,
+  `id_articulo_6` int(11) DEFAULT NULL,
+  `id_articulo_7` int(11) DEFAULT NULL,
+  `id_articulo_8` int(11) DEFAULT NULL,
+  `id_articulo_9` int(11) DEFAULT NULL,
+  `id_articulo_10` int(11) DEFAULT NULL,
+  `estado` tinyint(1) NOT NULL DEFAULT 1
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Volcado de datos para la tabla `cuentas`
 --
 
-INSERT INTO `cuentas` (`id`, `id_cliente`, `id_abonos`, `saldo`, `plazos`, `id_mueble_1`, `id_mueble_2`, `id_mueble_3`, `id_mueble_4`, `id_mueble_5`, `id_mueble_6`, `estado`) VALUES
-(1, 1, 1, 5000, 6, 1, NULL, NULL, NULL, NULL, NULL, 1);
+INSERT INTO `cuentas` (`id`, `id_cliente`, `id_abonos`, `saldo`, `plazos`, `id_artuculo_1`, `id_articulo_2`, `id_articulo_3`, `id_articulo_4`, `id_articulo_5`, `id_articulo_6`, `id_articulo_7`, `id_articulo_8`, `id_articulo_9`, `id_articulo_10`, `estado`) VALUES
+(1, 1, 1, 5000, 6, 1, NULL, NULL, NULL, NULL, NULL, 0, 0, 0, 0, 1);
 
 -- --------------------------------------------------------
 
@@ -172,16 +176,16 @@ CREATE TABLE `ventas` (
   `ID` int(11) NOT NULL,
   `cliente` int(11) NOT NULL,
   `cuenta` int(11) NOT NULL,
-  `articulo1` int(11) NOT NULL,
-  `articulo2` int(11) DEFAULT NULL,
-  `articulo3` int(11) DEFAULT NULL,
-  `articulo4` int(11) DEFAULT NULL,
-  `articulo5` int(11) DEFAULT NULL,
-  `articulo6` int(11) DEFAULT NULL,
-  `articulo7` int(11) DEFAULT NULL,
-  `articulo8` int(11) DEFAULT NULL,
-  `articulo9` int(11) DEFAULT NULL,
-  `articulo10` int(11) DEFAULT NULL,
+  `id_articulo_1` int(11) NOT NULL,
+  `id_articulo_2` int(11) DEFAULT NULL,
+  `id_articulo_3` int(11) DEFAULT NULL,
+  `id_articulo_4` int(11) DEFAULT NULL,
+  `id_articulo_5` int(11) DEFAULT NULL,
+  `id_articulo_6` int(11) DEFAULT NULL,
+  `id_articulo_7` int(11) DEFAULT NULL,
+  `id_articulo_8` int(11) DEFAULT NULL,
+  `id_articulo_9` int(11) DEFAULT NULL,
+  `id_articulo_10` int(11) DEFAULT NULL,
   `total` int(11) NOT NULL,
   `tipo` int(1) NOT NULL DEFAULT 0
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
