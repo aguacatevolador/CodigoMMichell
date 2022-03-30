@@ -27,8 +27,26 @@ include "config/conect.php";
 			</tr>
 
 			<?php
+			/*paginador*/
+			$sql_register = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM clientes WHERE estatus = 1");
+			$result_registros = mysqli_fetch_array($sql_register);
+			$total_registro = $result_registros['total_registro'];
 
-				$query = mysqli_query($conection,"SELECT * FROM clientes WHERE estatus = 1");
+			$por_pagina = 10;
+
+			if(empty($_GET['pagina'])){
+				$pagina = 1;
+			}else{
+				$pagina = $_GET['pagina'];
+			}
+
+			$desde = ($pagina-1) * $por_pagina;
+			$total_paginas = ceil($total_registro/$por_pagina);
+
+
+				$query = mysqli_query($conection,"SELECT * FROM clientes WHERE estatus = 1 
+					ORDER BY ID ASC
+					LIMIT $desde,$por_pagina");
 
 				$result = mysqli_num_rows($query);
 
@@ -47,7 +65,7 @@ include "config/conect.php";
 						<td>
 							<a href="editar_cliente.php?id=<?php echo($data['ID'])?>" class="link_edit">Editar</a>
 							<a > | </a> 
-							<?php if($data["ID"] != 1) {?>
+							<?php if($data["ID"] != 0) {?>
 							<a href="eliminar_confirmar.php?id=<?php echo($data['ID'])?>" class="link_eliminar">Eliminar</a>
 						</td>
 					</tr>
@@ -58,6 +76,29 @@ include "config/conect.php";
 			?>	
 
 		</table>
+		<div class="paginador">
+			<ul>
+			<?php 
+				if ($pagina != 1) {
+					?>
+				<li><a href="?pagina=<?php echo 1; ?>"> |< </a></li>
+				<li><a href="?pagina=<?php echo $pagina-1; ?>"> << </a></li>
+				<?php }?><?php
+					for ($i=1;$i <= $total_paginas; $i++) { 
+						if($i == $pagina)
+						{
+							echo '<li class="paginaActual">'.$i.'</li>';
+						}else{
+						echo '<li><a href=?pagina='.$i.'>'.$i.'</a></li>';
+					}}
+				?>
+			<?php if($pagina != $total_paginas){ ?>
+				<li><a href="?pagina=<?php echo $pagina+1; ?>"> >> </a></li>
+				<li><a href="?pagina=<?php echo $total_paginas; ?>"> >| </a></li>
+			<?php }?>
+			</ul>
+
+		</div>
 	</div>
 	</section>
 

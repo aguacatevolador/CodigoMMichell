@@ -1,33 +1,30 @@
 <?php
 include "config/conect.php";
-?>
+?>	
 <!DOCTYPE html>
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
 	<?php include "includes/scripts.php"; ?>
-	<title>Lista de Productos</title>
+	<title>Lista de Usuarios</title>
 </head>
 <body>
 	<?php include "includes/header.php"; ?>
-	
 	<section id="container">
-		<div class="listado_productos">
-		<h1>Lista de Productos</h1>
-		<a href="nuevo_producto.php" class="btn_new">Agregar Nuevo Producto</a>
+		<div class="listado_clientes">
+		<h1>Lista de Usarios</h1>
+		<a href="nuevo_usuario.php" class="btn_new">Agregar Nuevo Usuario</a>
 		<table>
 			<tr>
-				<th>Codigo</th>
+				<th>Usuario</th>
 				<th>Nombre</th>
-				<th>Precio</th>
-				<th>Descripcion</th>
-				<th>Estock</th>
+				<th>Password</th>
 				<th>Acciones</th>
 			</tr>
 
 			<?php
 			/*paginador*/
-			$sql_register = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM articulos WHERE estatus = 1");
+			$sql_register = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM clientes WHERE estatus = 1");
 			$result_registros = mysqli_fetch_array($sql_register);
 			$total_registro = $result_registros['total_registro'];
 
@@ -43,13 +40,9 @@ include "config/conect.php";
 			$total_paginas = ceil($total_registro/$por_pagina);
 
 
-
-
-
-				$query = mysqli_query($conection,"SELECT * FROM articulos WHERE estatus = 1 
-				ORDER BY codigo_articulo ASC
-				LIMIT $desde,$por_pagina
-				");
+				$query = mysqli_query($conection,"SELECT * FROM usuarios WHERE estatus = 1 
+					ORDER BY ID ASC
+					LIMIT $desde,$por_pagina");
 
 				$result = mysqli_num_rows($query);
 
@@ -58,18 +51,18 @@ include "config/conect.php";
 					while ($data = mysqli_fetch_array($query)) {
 			?>
 					<tr>
-						<td><?php echo($data['codigo_articulo'])?></td>
-						<td><?php echo($data['nombre'])?></td>
-						<td><?php echo($data['precio'])?></td>
-						<td><?php echo($data['descripcion'])?></td>
-						<td><?php echo($data['stok'])?></td>
+						<td><?php echo($data['USUARIO'])?></td>
+						<td><?php echo($data['NOMBRE'])?></td>
+						<td><?php echo($data['PASS'])?></td>
 						<td>
-							<a href="editar_producto.php?id=<?php echo($data['codigo_articulo'])?>" class="link_edit">Editar</a>
+							<a href="editar_usuario.php?id=<?php echo($data['ID'])?>" class="link_edit">Editar</a>
 							<a > | </a> 
-							<a href="eliminar_producto.php?id=<?php echo($data['codigo_articulo'])?>" class="link_eliminar">Eliminar</a>
+							<?php if($data["ID"] != 1) {?>
+							<a href="eliminar_usuario.php?id=<?php echo($data['ID'])?>" class="link_eliminar">Eliminar</a>
 						</td>
 					</tr>
 			<?php
+		}
 				}	
 				}
 			?>	
@@ -88,7 +81,7 @@ include "config/conect.php";
 						{
 							echo '<li class="paginaActual">'.$i.'</li>';
 						}else{
-						echo '<li><a href="?pagina='.$i.'">'.$i.'</a></li>';
+						echo '<li><a href=?pagina='.$i.'>'.$i.'</a></li>';
 					}}
 				?>
 			<?php if($pagina != $total_paginas){ ?>

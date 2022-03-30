@@ -196,6 +196,15 @@ input{
 	border: 1px solid #85929e;
 	border-radius: 5px;
 }
+select {
+	display: block;
+	width: 100%;
+	font-size: 11pt;
+	padding: 5px;
+	border: 1px solid #85929e;
+	border-radius: 5px;
+	color: black;
+}
 .btn_save{
 	width: 75%;
 	font-size: 12pt;
@@ -229,6 +238,8 @@ input{
 	margin: auto;
 	align-items: center;
 }*/
+
+
 #container h1{
 	font-size: 35px;
 	display: inline-block;
@@ -322,4 +333,35 @@ table td{
 	border: 0;
 	cursor: pointer;
 	margin: 15px auto;
+}
+
+/*Estilos paginador*/
+.paginador ul{
+	padding: 15px;
+	list-style: none;
+	background: #FFF;
+	margin-top: 15px;
+	display: -webkit-flex;
+	display: -moz flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	justify-content: flex-end;
+}
+.paginador a, .paginaActual{
+	color: #428bca;
+	border: 1px solid #ddd;
+	padding: 5px;
+	display: inline-block;
+	font-size: 14px;
+	text-align: center;
+	width: 35px;
+}
+.paginador a.hover{
+	background: #ddd;
+}
+.paginaActual{
+	color: #fff;
+	background: #428bca;
+	border: 1px solid #428bca;
 }

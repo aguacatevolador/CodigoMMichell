@@ -15,6 +15,7 @@
 	}
 
 ?>	
+
 	<header>
 		<div class="header">
 			
@@ -25,7 +26,7 @@
 				<span class="user"><?php echo $_SESSION['Nombre'] ?></span>
 				<img class="photouser" src="img/user.png" alt="Usuario">
 				<a href="salir.php"><img class="close" src="img/salir.png" alt="Salir del sistema" title="Salir"></a>
-			</div>
+				</div>
 		</div>
 		<?php include "nav.php";?>
 	</header>

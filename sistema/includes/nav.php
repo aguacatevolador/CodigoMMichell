@@ -10,8 +10,9 @@
 				<li class="principal">
 					<a href="#">Abonos</a>
 					<ul>
-						<li><a href="#">Nuevo Abono</a></li>
+						<li><a href="nuevo_abono.php">Nuevo Abono</a></li>
 						<li><a href="#">Consulta de Cartera</a></li>
+						<li><a href="cuentas_saldadas.php">Cuentas Saldadas</a></li>
 					</ul>
 				</li>
 				<li class="principal">
@@ -33,6 +34,13 @@
 					<ul>
 						<li><a href="#">Reporte de Ventas</a></li>
 						<li><a href="#">Reporte de Inventarios</a></li>
+					</ul>
+				</li>
+				<li class="principal">
+					<a href="#">Usuarios</a>
+					<ul>
+						<li><a href="nuevo_usuario.php">Nuevo Usuario</a></li>
+						<li><a href="lista_usuarios.php">Lista de Usuarios</a></li>
 					</ul>
 				</li>
 			</ul>

@@ -1,5 +1,16 @@
 <?PHP 
 	include"../config/conect.php";
+
+	$query_ultimo = mysqli_query($conection,"SELECT codigo_articulo as ultimo_codigo FROM articulos ORDER BY codigo_articulo DESC LIMIT 1;");
+	$result_registro = mysqli_fetch_array($query_ultimo);
+	$ultimo_codigo = $result_registro['ultimo_codigo'];
+	$ultimo_codigo = $ultimo_codigo+1;
+	$tt=0;
+
+
+	//$IDUsuario=($_POST[SESSION]);
+
+
 	if(!empty($_POST))
 	{
 		$alert='';
@@ -22,14 +33,24 @@
 			}else{
 				$query_insert = mysqli_query($conection,"INSERT INTO articulos(codigo_articulo,nombre,precio,descripcion,stok)
 				VALUES('$codigo','$nombre','$precio','$descripcion','$stok')");
+			
+			//	$query_movimientos = mysqli_query($conection,"INSERT INTO `movimientos`( `usuario`, `descripcion`,`descripcion_1`, `fecha`) VALUES ('$SESSION','Nuevo Producto', 
+			//	`$codigo`,now())");
+
 				if($query_insert){
 					$alert='<p class="msg_save">El Producto se Agrego Correctamente</p>';
+					$tt=1;
 				}else{
 					$alert='<p class="msg_error">* Error al Agregar el Producto</p>';
 				}
+				
 			}
 		}
 	}
+	if($tt==1){
+					sleep(1);
+					header('location: ./nuevo_producto.php');
+				}
 
 ?>
 <!DOCTYPE html>
@@ -48,7 +69,7 @@
 			<div class="alert"><?PHP echo isset($alert) ? $alert:'' ?> </div>
 			<form action="" method="post">
 				<label for="codigo">Codigo</label>
-				<input type="number" name="codigo" id="codigo" placeholder="10000023">
+				<input type="number" name="codigo" id="codigo" placeholder="<?php echo $ultimo_codigo; ?>" value="<?php echo $ultimo_codigo; ?>">
 				<label for="nombre">Nombre</label>
 				<input type="text" name="nombre" id="nombre" placeholder="Nombre del Producto">
 				<label for="precio">Precio</label>
