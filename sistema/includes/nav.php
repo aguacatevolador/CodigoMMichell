@@ -11,7 +11,7 @@
 					<a href="#">Abonos</a>
 					<ul>
 						<li><a href="nuevo_abono.php">Nuevo Abono</a></li>
-						<li><a href="#">Consulta de Cartera</a></li>
+						<li><a href="consulta_cartera.php">Consulta de Cartera</a></li>
 						<li><a href="cuentas_saldadas.php">Cuentas Saldadas</a></li>
 					</ul>
 				</li>
@@ -41,6 +41,12 @@
 					<ul>
 						<li><a href="nuevo_usuario.php">Nuevo Usuario</a></li>
 						<li><a href="lista_usuarios.php">Lista de Usuarios</a></li>
+					</ul>
+				</li>
+				<li class="principal">
+					<a href="#">Movimientos</a>
+					<ul>
+						<li><a href="#">Movimientos</a></li>
 					</ul>
 				</li>
 			</ul>

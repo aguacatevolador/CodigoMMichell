@@ -12,10 +12,16 @@ include "config/conect.php";
 	<?php include "includes/header.php"; ?>
 	
 	<section id="container">
+	<?php 
+		$busqueda = strtolower($_REQUEST['busqueda']);
+		if(empty($busqueda)){
+			header("location: lista_productos.php");
+		}
+	?>
 		<div class="listado_productos">
 		<h1>Lista de Productos</h1>
 			<form action="buscar.php" method="get" class="form_search">
-			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar..">
+			<input type="text" name="busqueda" id="busqueda" placeholder="Buscar.." value="<?php echo $busqueda; ?>">
 			<input type="submit" value="Buscar" class="btn_search" >
 		</form>
 			
@@ -32,7 +38,14 @@ include "config/conect.php";
 
 			<?php
 			/*paginador*/
-			$sql_register = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM articulos WHERE estatus = 1");
+			$sql_register = mysqli_query($conection,"SELECT COUNT(*) as total_registro FROM articulos WHERE 
+			(codigo_articulo LIKE $busqueda OR
+			nombre LIKE $busqueda OR
+			precio LIKE $busqueda OR
+			descripcion LIKE $ $busqueda
+			) AND 		
+			estatus = 1
+			");
 			$result_registros = mysqli_fetch_array($sql_register);
 			$total_registro = $result_registros['total_registro'];
 

@@ -365,3 +365,103 @@ table td{
 	background: #428bca;
 	border: 1px solid #428bca;
 }
+/*Estilos Busqueda*/
+.form_search{
+	display: -webkit-flex;
+	display: -moz flex;
+	display: -ms-flex;
+	display: -o-flex;
+	display: flex;
+	float: right;
+	background: initial;
+	padding: 10px;
+	border-radius: 10px;
+}
+.form_search .btn_search{
+	background: #1facc8;
+	color: #FFF;
+	padding: 0 20px;
+	border: 0;
+	cursor: pointer;
+	margin-left: 10px;
+}
+/****************** Ventas **************/
+.Produ{
+	float: left;
+	min-height: 90%;
+	height: 90%;
+	width: 24%;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 10px;
+	background: silver;
+}
+.New{
+	min-height: 150px;
+
+}
+.Total{
+
+}
+.Products{
+	margin-top:auto ;
+	float: right;
+	overflow: scroll;
+	justify-content: right;
+	height: 59%;
+	width: 74%;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 10px;
+	background: silver;
+	max-height: 350px;
+	min-height: 60%
+}
+.Products label{
+	width: 50%;
+	text-align: center;
+}
+.datas{
+	margin-top: 15px;
+	min-height: 150px;
+	float: right;
+	height: 39%;
+	width: 74%;
+	padding: 5px;
+	border: 2px solid black;
+	border-radius: 10px;
+	background: silver;
+}
+.btn_nuevo{
+	width: 35px;
+	height: 35px
+}
+.form_ventas{
+	padding: 0px;
+	background: none;
+	border: none;
+}
+.form_ventas input{
+	color: black;
+	margin: none;
+	padding-bottom: 15px 25px;
+	cursor: pointer;
+	background: none;
+	border: none;
+	padding: 
+}
+.descriptions{
+	font-size: 20px;
+	padding-top: 5px;
+}
+.btn_pagar{
+	width: 75%;
+	font-size: 12pt;
+	background: #12a4c6;/*color del boton de agregar*/
+	padding: 10px;
+	color: #FFF;
+	letter-spacing: 2px;
+	border: 0;
+	cursor: pointer;
+	margin: 15px auto;
+}

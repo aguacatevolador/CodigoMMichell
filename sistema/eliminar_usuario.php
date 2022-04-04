@@ -60,6 +60,7 @@ if(empty($_REQUEST['id']) || $_REQUEST['id'] == 1){
 				<a href="lista_clientes.php" class="btn_cancel">Cancelar</a>
 				<input type="submit" name="Aceptar" class="btn_acept" />
 			</form>
+			<hr>
 		</div>
 
 
